@@ -1,0 +1,54 @@
+{
+  "name": "smart-avatar",
+  "version": "0.0.1",
+  "description": "Render avatars with dynamic, defined fallback",
+  "main": "./dist/smart-avatar.min.js",
+  "directories": {
+    "lib": "./lib"
+  },
+  "files": [
+    "./dist/*",
+    "./lib/**/*"
+  ],
+  "scripts": {
+    "build": "webpack && gulp --gulpfile ./gulpfile.browser.js",
+    "build:browser": "gulp --gulpfile ./gulpfile.browser.js",
+    "build:demo": "gulp --gulpfile ./gulpfile.demo.js",
+    "test": "gulp --gulpfile ./gulpfile.test.js && http-server ./test/manual -p 7878"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaredgorski/smart-avatar.git"
+  },
+  "keywords": [
+    "avatar",
+    "default",
+    "dynamic",
+    "fallback",
+    "icon",
+    "identicon",
+    "image",
+    "initials",
+    "gravatar",
+    "photo",
+    "smart",
+    "user"
+  ],
+  "author": "Jared Gorski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaredgorski/smart-avatar/issues"
+  },
+  "homepage": "https://github.com/jaredgorski/smart-avatar#readme",
+  "devDependencies": {
+    "compression-webpack-plugin": "^2.0.0",
+    "gulp": "^4.0.0",
+    "gulp-cli": "^2.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-replace": "^1.0.0",
+    "terser": "^3.14.1",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1"
+  },
+  "dependencies": {}
+}

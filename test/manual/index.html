@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>smart-avatar | test</title>
+    <link rel="stylesheet" type="text/css" href="test.css">
+    <link rel="shortcut icon" type="image/png" href="./smartfox@64.png">
+  </head>
+  <body>
+    <div class="testing-page">
+      <div class="testing-page-left">
+        <h1 class="testing-page-title">smart-avatar <span>test</span></h1>
+        <textArea class="testing-page-input" id="saOptions" data-gramm_editor="false" spellcheck="false"></textArea>
+        <div class="testing-page-reset-container">
+          <span class="testing-page-reset" id="saReset" title="Reset the options to default settings">reset</span>
+        </div>
+      </div>
+      <div class="testing-page-right">
+        <div class="testing-page-targetEl" id="targetEl"></div>
+      </div>
+    </div>
+
+    <script type="module">
+      import smartAvatar from './js/sa-test.js';
+
+      const testInput = document.getElementById("saOptions");
+      const myEl = document.getElementById("targetEl");
+      const resetInput = document.getElementById("saReset");
+
+      const initialConfig = {
+        color: '#777777',
+        email: 'jared.gorski@liferay.com',
+        hash: '93a5c828f0da09f0af10d2ac238724b5',
+        icon: 'smartfox',
+        initials: 'J',
+        priority: ['gravatar','src','smart'],
+        resolution: 300,
+        round: true,
+        size: 200,
+        src: './img/src.jpg',
+        textColor: '#FFFFFF',
+        timestamp: true,
+        timestamp: true,
+      };
+
+      function resetSA() {
+        testInput.value = JSON.stringify(initialConfig, null, 2);
+        smartAvatar(targetEl, initialConfig);
+      }
+
+      function updateSA() {
+        smartAvatar(targetEl, 'dispose');
+        const newConfig = JSON.parse(testInput.value);
+        smartAvatar(targetEl, newConfig);
+      }
+
+      testInput.addEventListener('keyup', () => {
+        updateSA();
+      });
+
+      resetInput.addEventListener('click', () => {
+        smartAvatar(targetEl, 'dispose');
+        resetSA();
+      });
+
+      resetSA();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+#Ignore node modules
+node_modules/
+
+#Ignore demo
+demo/
+gulp/gulpfile.demo.js
