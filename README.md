@@ -1,4 +1,4 @@
-# smart-avatar [WORK IN PROGRESS] <img align="left" height="100" src="https://raw.githubusercontent.com/jaredgorski/smart-avatar/master/.media/smartfox%40640.png">
+# smart-avatar [WORK IN PROGRESS] <img align="left" height="100" src="https://raw.githubusercontent.com/jaredgorski/smart-avatar/master/.media/smartfox%40640.png?token=Ai-cyLkAuM-4i3LXenNzpZDDp7YgxhZRks5cV-3RwA%3D%3D">
 Render avatars with dynamic, defined fallback
 
 ![](https://github.com/jaredgorski/smart-avatar/raw/master/.media/smart-avatar_demo.gif)
@@ -160,7 +160,7 @@ The "smart" resource is so-called because it provides an easy API for quality fa
 
 **smartfox** - the best default fox ever (uses `color` as background)
 <p align="left">
-  <img height="80" src="https://raw.githubusercontent.com/jaredgorski/smart-avatar/master/.media/smartfox%40640.png">
+  <img height="80" src="https://raw.githubusercontent.com/jaredgorski/smart-avatar/master/.media/smartfox%40640.png?token=Ai-cyLkAuM-4i3LXenNzpZDDp7YgxhZRks5cV-3RwA%3D%3D">
 </p>
 
 ## Gravatar-hosted Icons ([from their website](https://en.gravatar.com/site/implement/images/)):
