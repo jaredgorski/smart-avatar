@@ -55,10 +55,13 @@
         smartAvatar(targetEl, newConfig);
       }
 
-      testInput.addEventListener('keyup', () => {
-        if (event.keyCode !== 16) {
+      let timer;
+
+      testInput.addEventListener('keyup', (event) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
           updateSA();
-        }
+        }, 200);
       });
 
       resetInput.addEventListener('click', () => {
