@@ -64,7 +64,7 @@ smartAvatar(targetElement, {
     smartAvatar(element, {
       "email": element.getAttribute('email'),
       "initials": element.getAttribute('initials'),
-      "src": `./user-imgs/{$element.getAttribute('name')}.jpg`,
+      "src": `./user-imgs/${element.getAttribute('name')}.jpg`,
       "icon": "retro"
       "round": true,
       "size": element.getAttribute('size'),
