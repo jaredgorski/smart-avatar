@@ -35,6 +35,7 @@ A live demo is hosted at the following link. This demo allows for experimentatio
 # Usage
 
 ## Basic Example
+#### JS:
 ```javascript
 import smartAvatar from 'smart-avatar';
 
@@ -51,6 +52,25 @@ smartAvatar(targetElement, {
   "textColor": "#FFF",
   "cssClass": "we-user",
 });
+```
+#### ES Module:
+```html
+<script type="module">
+  import smartAvatar from 'path-to-module/dist/smart-avatar.browser.js';
+ 
+  const targetElements = document.querySelectorAll('.avatar');
+  
+  targetElements.forEach(element => {
+    smartAvatar(element, {
+      "email": element.getAttribute('email'),
+      "initials": element.getAttribute('initials'),
+      "src": `./user-imgs/{$element.getAttribute('name')}.jpg`,
+      "icon": "retro"
+      "round": true,
+      "size": element.getAttribute('size'),
+    });
+  }
+</script>
 ```
 
 ## Detailed Example
@@ -206,3 +226,8 @@ The "smart" resource is so-called because it provides an easy API for quality fa
 `npm run test`
 
 *navigate to http://127.0.0.1:7878/ to manually test changes*
+
+# Coming Soon:
+ - Some options default to 'custom': inline styles won't automatically be added, meaning that proprietary stylesheets aren't superceded.
+ - UMD standardization: no need to import a separate file in ES modules.
+ - General improvements: whatever I find necessary, and whatever you suggest! Make issues and send PRs please :smiley:
