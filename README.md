@@ -38,7 +38,7 @@ A live demo is hosted at the following link. This demo allows for experimentatio
 ```javascript
 import smartAvatar from 'smart-avatar';
 
-const targetElement = document.querySelector(.topbar-user);
+const targetElement = document.querySelector('.topbar-user');
 
 smartAvatar(targetElement, {
   "email": "jared.gorski@liferay.com",
