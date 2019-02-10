@@ -9,7 +9,7 @@ function renderSA(element, saData) {
 }
 
 function create(element, saData) {
-  var gravatarIcons = ['404', 'mp', 'identicon', 'monsterid', 'wavatar', 'retro', 'robohash', 'blank'];
+  var gravatarIcons = ['mp', 'identicon', 'monsterid', 'wavatar', 'retro', 'robohash'];
   var creation = {};
   switch (true) {
     case (saData.priority.src1 === 'smart' && saData.initials):
@@ -52,8 +52,13 @@ function generateIconImg(saData) {
   var img = new Image();
   var iconUrl = generateGravatarIconUrl(saData.icon);
   img.src = iconUrl;
-  img.classList.add('smart-avatar' + saData.cssClass);
   img.style.cssText = (saData.round ? 'border-radius: 50%;' : '') + 'height:' + saData.size + 'px;width:' + saData.size +'px;';
+
+  if (saData.cssClass) {
+    img.classList.add('smart-avatar', saData.cssClass);
+  } else {
+    img.classList.add('smart-avatar');
+  }
 
   if (saData.timestamp) {
     img.setAttribute('sa_timestamp', Date.now());
@@ -85,12 +90,17 @@ function generateElement(type, saData) {
   }
 
   var div = document.createElement("div");
-  div.classList.add('smart-avatar' + saData.cssClass);
   div.style.cssText = (saData.round ? 'border-radius: 50%;' : '') + 'align-items:center;background-color:' + 
     saData.color +';color:' + saData.textColor + 
     ';display:flex;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;font-size:' + 
     (saData.size / 2) + 'px;height:' + saData.size + 
     'px;justify-content:center;margin:0;padding:0;width:' + saData.size +'px;';
+
+  if (saData.cssClass) {
+    div.classList.add('smart-avatar', saData.cssClass);
+  } else {
+    div.classList.add('smart-avatar');
+  }
 
   if (saData.timestamp) {
     div.setAttribute('sa_timestamp', Date.now());
@@ -108,7 +118,6 @@ function generateComplexImage(element, saData) {
 
   var img = new Image();
   img.src = a1.content;
-  img.classList.add('smart-avatar' + saData.cssClass);
   img.style.cssText = (saData.round ? 'border-radius: 50%;' : '') + 'height:' + saData.size + 'px;width:' + saData.size +'px;';
   
   img.onerror = function() {
@@ -120,6 +129,12 @@ function generateComplexImage(element, saData) {
       };
     }
   };
+
+  if (saData.cssClass) {
+    img.classList.add('smart-avatar', saData.cssClass);
+  } else {
+    img.classList.add('smart-avatar');
+  }
 
   if (saData.timestamp) {
     img.setAttribute('sa_timestamp', Date.now());
@@ -133,12 +148,15 @@ function generateComplexImage(element, saData) {
 }
 
 function handleErrFallback(element, img, asset) {
+  img.style.opacity = 0;
+  
   if (asset.type === 'el') {
     delete img.onerror;
     element.appendChild(asset.content);
     element.removeChild(img);
   } else {
     img.src = asset.content;
+    img.style.opacity = 1;
 
     if (!img.src) {
       throw new Error("SmartAvatar ERROR: internal error - img src recursively undefined")
@@ -147,7 +165,7 @@ function handleErrFallback(element, img, asset) {
 }
 
 function parseComplexAssets(saData) {
-  var gravatarIcons = ['404', 'mp', 'identicon', 'monsterid', 'wavatar', 'retro', 'robohash', 'blank'];
+  var gravatarIcons = ['mp', 'identicon', 'monsterid', 'wavatar', 'retro', 'robohash'];
   var assets = {
     asset1: {},
     asset2: {},
@@ -234,7 +252,7 @@ export default function smartAvatar(element, options) {
   saData.color = options.color ? parseColor(options.color.toString()) : '#777';
   saData.textColor = options.textColor ? parseColor(options.textColor.toString()) : '#FFF';
   saData.colorScheme = options.colorScheme ? parseColorScheme(options.colorScheme) : null;
-  saData.cssClass = options.cssClass ? options.cssClass.toString() : '';
+  saData.cssClass = options.cssClass ? options.cssClass.toString() : null;
   saData.email = options.email ? parseEmail(options.email.toString()) : null;
   saData.hash = (options.hash ? options.hash.toString() : false) || (saData.email ? md5(saData.email) : null);
   saData.protocol = options.protocol ? parseProtocol(options.protocol.toString()) : 'secure';

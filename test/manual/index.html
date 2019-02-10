@@ -56,7 +56,9 @@
       }
 
       testInput.addEventListener('keyup', () => {
-        updateSA();
+        if (event.keyCode !== 16) {
+          updateSA();
+        }
       });
 
       resetInput.addEventListener('click', () => {
