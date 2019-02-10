@@ -37,7 +37,7 @@ config = generateConfig({
   name: 'smart-avatar',
   mode: 'production',
   outputPath: '/dist/',
-  target: 'umd',
+  target: 'commonjs2',
   extension: '.js',
 });
 
