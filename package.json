@@ -1,8 +1,8 @@
 {
   "name": "smart-avatar",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Render avatars with dynamic, defined fallback",
-  "main": "./dist/smart-avatar.min.js",
+  "main": "./dist/smart-avatar.js",
   "directories": {
     "lib": "./lib"
   },

@@ -9,7 +9,7 @@ gulp.task('build', function(done) {
     .pipe(replace(/var {?[\s\S]*}? = require\((.*)\);/g, ''))
     .pipe(replace(/(\r|\n)/g, ' '))
     .pipe(replace(/  /g, ' '))
-    .pipe(concat('smart-avatar.browser.min.js'))
+    .pipe(concat('smart-avatar.browser.js'))
     .pipe(gulp.dest(__dirname + '/dist/'))
   done();
 });

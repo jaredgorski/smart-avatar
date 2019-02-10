@@ -8,7 +8,7 @@ function generateConfig(options) {
     entry: options.entry || __dirname + '/index.js',
     output: {
       path: __dirname + options.outputPath,
-      filename: options.name + (options.mode === 'production' ? '.min' : '') + (options.extension || '.js'),
+      filename: options.name + (options.extension || '.js'),
     },
     plugins: [],
     node: {
