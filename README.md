@@ -18,8 +18,8 @@ Render avatars with dynamic, defined fallback
   * [User-defined Source](#user-defined-source)
   * [Smart Resource Settings](#smart-resource-settings)
 * [Available Icon Options](#available-icon-options)
-  * [Gravatar-hosted Icons](#gravatar-hosted-icons-from-their-website)
   * [SmartAvatar Icons](#smartavatar-icons)
+  * [Gravatar-hosted Icons](#gravatar-hosted-icons)
 * [Develop and Test](#develop-and-test)
     
 ---
@@ -114,6 +114,10 @@ smartAvatar(targetElement, {
   
   // built-in icon
   "icon": "smartfox",                               // see below for available icon styles
+  
+  // customization and defaults
+  "unstyled": false,                                // renders smart-avatar with no inline styles (for stylesheets)
+  "setDefaults": true,                              // sets styled defaults for size, color, and textColor
 });
 ```
 
@@ -140,7 +144,7 @@ Key | Definition | Default
 `alt` | **String** - Adds `alt` attribute to img element output. | N/A
 `cssClass` | **String** - Adds custom CSS classes. | N/A
 `round` | **Boolean** - Generates output with border-radius of 50%. | `false`
-`size` | **Number or String** - Defines output element width in `px`. | `80`
+`size` | **Number or String** - Defines output element width in `px`. | N/A
 `timestamp` | **Boolean** - Adds `sa_timestamp` attribute with milliseconds elapsed since the UNIX epoch. | `false`
 
 These settings apply to the rendered element in general. One can add CSS classes for use by custom stylesheets, define the size and shape of the rendered element, add a timestamp for debugging or use as a unique id (obviously this value is not permanent), and add an `alt` attribute for accessibility purposes.
@@ -152,7 +156,7 @@ Key | Definition | Default
 `format` | **String** - Image format to request from Gravatar: *jpg, png, or tiff.* | `jpg`
 `hash` | **String** - md5 hash of Gravatar email address. | N/A
 `protocol` | **String** - Protocol to use for Gravatar request: *secure (https), unsecure (http), or agnostic (//).* | `secure`
-`resolution` | **Number or String** - Defines gravatar resolution (width) in `px`. Does not affect size. | `120`, or `size` * 1.5
+`resolution` | **Number or String** - Defines gravatar resolution (width) in `px`. Does not affect size. Best at 150% of size. | `80`
 
 Defining these settings enables rendering a Gravatar user image by requesting a resource from Gravatar for a given user's email address. Many aspects of this request and output can be customized, including the request protocol, resource format, and image resolution. Keep in mind that higher resolutions result in more data transfer, meaning larger requests.
 
@@ -166,12 +170,49 @@ Providing a path to a custom resource allows for proprietary icons and user imag
 ## Smart Resource Settings
 Key | Definition | Default
 --- | --- | ---
-`color` | **String** - Background color of smart icon as Hex, RGB, or RGBA value. | `#777`
+`color` | **String** - Background color of smart icon as Hex, RGB, or RGBA value. | N/A
 `icon` | **String** - Defines smart icon style. | `smartfox`
 `initials` | **String** - 1 or 2 letters to use as initials. | N/A
-`textColor` | **String** - Font color of initials icon as Hex, RGB, or RGBA value. | `#FFF`
+`textColor` | **String** - Font color of initials icon as Hex, RGB, or RGBA value. | N/A
 
 The "smart" resource is so-called because it provides an easy API for quality fallback in the worst-case scenario. If the given **gravatar** data doesn't return a valid image and the **src** path is broken, an asset with a given user's initials or a general, non-specific icon makes for a great avatar. If an icon is preferred, there are plenty of options to choose from, with more to come. See the list of available icons below.
+
+_Note: `color` and `textColor` only matter in the case of a non-Gravatar icon or an initials avatar._
+
+## "unstyled" Flag
+Even with no settings defined, a non-Image smart-avatar will _still_ have the following inline styles:
+
+```html
+<div style="
+    align-items: center;
+    display: flex;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",
+        sans-serif;
+">
+    <span style="
+        display: flex;
+    ">
+        ${content}
+    </span>
+</div>
+```
+
+This means that, if you wish to customize the font of your initials avatar or change the layout styles for some reason, simply leaving all of the settings undefined will potentially get in the way of stylesheet customizations (unless you use `!important`, but that defies best-practices).
+
+This is where the `unstyled` flag comes in handy. If you want your smart-avatar asset to be completely raw and unstyled to make room for your stylesheets, you should pass `unstyled: true`. This will override any settings for that smart-avatar asset, always returning pure HTML. This means that images will render at their natural sizes, there will be no layout structure, and background colors, text colors, and font styles will all default to User-Agent unless styled otherwise. This makes smart-avatar a flexible solution for nearly any application.
+
+## "setDefaults" Flag
+If you're looking for quick and dirty results, passing `setDefaults: true` in your configuration will change the default behavior of `color`, `size`, and `textColor` to the following:
+
+Key | Definition | Default
+--- | --- | ---
+`color` | **String** - Background color of smart icon as Hex, RGB, or RGBA value. | `#777777`
+`size` | **Number or String** - Defines output element width in `px`. | `48`
+`textColor` | **String** - Font color of initials icon as Hex, RGB, or RGBA value. | `#FFFFFF`
+
+Since the `setDefaults` flag _only changes the default behavior_ of these settings, that means that defining these settings yourself will still override these defaults. For example, a smart-avatar asset with `setDefaults: true` and `size: 120` will render with a size of 120px, a background color of `#777`, and a font color of `FFF`.
+
+_Note: `color` and `textColor` only matter in the case of a non-Gravatar icon or an initials avatar._
 
 
 # Available Icon Options
@@ -183,7 +224,8 @@ The "smart" resource is so-called because it provides an easy API for quality fa
   <img height="80" src="https://raw.githubusercontent.com/jaredgorski/smart-avatar/master/.media/smartfox%40640.png">
 </p>
 
-## Gravatar-hosted Icons ([from their website](https://en.gravatar.com/site/implement/images/)):
+## Gravatar-hosted Icons 
+_([from their website](https://en.gravatar.com/site/implement/images/))_
 
 **mp** - (mystery-person) a simple, cartoon-style silhouetted outline of a person (does not vary by email hash)
 <p align="left">
