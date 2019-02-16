@@ -16,11 +16,15 @@ function create(element, saData) {
       creation.asset = generateEl('initEl', saData);
       creation.finished = true;
       break;
-    case (saData.priority.src1 === 'smart' && saData.icon && !gravatarIcons.includes(saData.icon)):
+    case (saData.priority.src1 === 'smart' 
+      && saData.icon 
+      && !gravatarIcons.includes(saData.icon)):
       creation.asset = generateEl('iconEl', saData);
       creation.finished = true;
       break;
-    case (saData.priority.src1 === 'smart' && saData.icon && gravatarIcons.includes(saData.icon)):
+    case (saData.priority.src1 === 'smart' 
+      && saData.icon 
+      && gravatarIcons.includes(saData.icon)):
       creation.asset = generateEl('iconImg', saData);
       creation.finished = true;
       break;
@@ -52,7 +56,11 @@ function generateIconImg(saData) {
   var img = new Image();
   var iconUrl = generateGravatarIconUrl(saData.icon);
   img.src = iconUrl;
-  img.style.cssText = (saData.round ? 'border-radius: 50%;' : '') + 'height:' + saData.size + 'px;width:' + saData.size +'px;';
+
+  if (!saData.unstyled) {
+    img.style.cssText = (saData.round ? 'border-radius: 50%;' : '') + 
+      (saData.size ? 'height:' + saData.size + 'px;width:' + saData.size +'px;' : '');
+  }
 
   if (saData.cssClass) {
     img.classList.add('smart-avatar', saData.cssClass);
@@ -90,11 +98,16 @@ function generateElement(type, saData) {
   }
 
   var div = document.createElement("div");
-  div.style.cssText = (saData.round ? 'border-radius: 50%;' : '') + 'align-items:center;background-color:' + 
-    saData.color +';color:' + saData.textColor + 
-    ';display:flex;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;font-size:' + 
-    (saData.size / 2) + 'px;height:' + saData.size + 
-    'px;justify-content:center;margin:0;padding:0;width:' + saData.size +'px;';
+
+  if (!saData.unstyled) {
+    div.style.cssText = (saData.round ? 'border-radius: 50%;' : '') + 
+      'align-items:center;' + (saData.color ? 'background-color:' + saData.color : '') + 
+      (saData.textColor ? ';color:' + saData.textColor : '') + 
+      ';display:flex;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",'
+       + 'Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;' + 
+      (saData.size ? 'font-size:' + (saData.size / 2) + 'px;height:' + saData.size + 
+      'px;justify-content:center;margin:0;padding:0;width:' + saData.size +'px;' : '');
+  }
 
   if (saData.cssClass) {
     div.classList.add('smart-avatar', saData.cssClass);
@@ -118,7 +131,12 @@ function generateComplexImage(element, saData) {
 
   var img = new Image();
   img.src = a1.content;
-  img.style.cssText = (saData.round ? 'border-radius: 50%;' : '') + 'height:' + saData.size + 'px;width:' + saData.size +'px;';
+
+  if (!saData.unstyled) {
+    img.style.cssText = (saData.round ? 'border-radius: 50%;' : '') + 
+      (saData.size ? 'height:' + saData.size + 
+      'px;width:' + saData.size +'px;' : '');
+  }
   
   img.onerror = function() {
     handleErrFallback(element, img, a2);
@@ -172,7 +190,10 @@ function parseComplexAssets(saData) {
     asset3: {},
   };
 
-  assets.asset1.content = saData.priority.src1 === 'gravatar' ? saData.gravatarUrl : saData.src;
+  assets.asset1.content = saData.priority.src1 === 'gravatar' 
+    ? saData.gravatarUrl 
+    : saData.src;
+
   assets.asset1.type = 'url';
 
   for (var i = 2; i <= 3; i++) {
@@ -246,19 +267,27 @@ export default function smartAvatar(element, options) {
   saData.timestamp = typeof options.timestamp === 'boolean' ? options.timestamp : false;
   saData.alt = options.alt ? options.alt.toString() : null;
   saData.icon = options.icon ? options.icon.toString() : 'smartfox';
-  saData.size = options.size ? parseImgRes(options.size.toString()) : '48';
+  saData.size = options.size ? parseImgRes(options.size.toString()) : null;
   saData.round = options.round === true ? true : false;
   saData.initials = options.initials ? parseInitials(options.initials.toString()) : null;
-  saData.color = options.color ? parseColor(options.color.toString()) : '#777';
-  saData.textColor = options.textColor ? parseColor(options.textColor.toString()) : '#FFF';
+  saData.color = options.color ? parseColor(options.color.toString()) : null;
+  saData.textColor = options.textColor ? parseColor(options.textColor.toString()) : null;
   saData.colorScheme = options.colorScheme ? parseColorScheme(options.colorScheme) : null;
   saData.cssClass = options.cssClass ? options.cssClass.toString() : null;
   saData.email = options.email ? parseEmail(options.email.toString()) : null;
   saData.hash = (options.hash ? options.hash.toString() : false) || (saData.email ? md5(saData.email) : null);
   saData.protocol = options.protocol ? parseProtocol(options.protocol.toString()) : 'secure';
   saData.format = options.format ? parseImgFormat(options.format.toString()) : 'jpg';
-  saData.resolution = options.resolution ? parseImgRes(options.resolution.toString()) : (saData.size * 1.5);
+  saData.resolution = options.resolution ? parseImgRes(options.resolution.toString()) : '80';
   saData.src = options.src ? options.src.toString() : null;
+
+  saData.unstyled = options.unstyled === true ? true : false;
+
+  if (!saData.unstyled && options.setDefaults) {
+    saData.color = saData.color || '#777';
+    saData.size = saData.size || '48';
+    saData.textColor = saData.textColor || '#FFF';
+  }
 
   saData.gravatarUrl = saData.hash ? generateGravatarUrl(saData) : '';
   
