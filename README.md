@@ -272,6 +272,5 @@ _([from their website](https://en.gravatar.com/site/implement/images/))_
 *navigate to http://127.0.0.1:7878/ to manually test changes*
 
 # Coming Soon:
- - Some options default to 'custom': inline styles won't automatically be added, meaning that proprietary stylesheets aren't superceded.
  - UMD standardization: no need to import a separate file in ES modules.
  - General improvements: whatever I find necessary, and whatever you suggest! Make issues and send PRs please :smiley:
