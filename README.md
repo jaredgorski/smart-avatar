@@ -17,6 +17,8 @@ Render avatars with dynamic, defined fallback
   * [Gravatar Settings](#gravatar-settings)
   * [User-defined Source](#user-defined-source)
   * [Smart Resource Settings](#smart-resource-settings)
+  * ["unstyled" Flag](#unstyled-flag)
+  * ["setDefaults" Flag](#setdefaults-flag)
 * [Available Icon Options](#available-icon-options)
   * [SmartAvatar Icons](#smartavatar-icons)
   * [Gravatar-hosted Icons](#gravatar-hosted-icons)
