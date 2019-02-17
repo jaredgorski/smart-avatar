@@ -1,6 +1,6 @@
 {
   "name": "smart-avatar",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Render avatars with dynamic, defined fallback",
   "main": "./dist/smart-avatar.js",
   "directories": {
@@ -13,7 +13,8 @@
     "build": "webpack && gulp --gulpfile ./gulpfile.browser.js",
     "build:browser": "gulp --gulpfile ./gulpfile.browser.js",
     "build:demo": "gulp --gulpfile ./gulpfile.demo.js",
-    "test": "gulp --gulpfile ./gulpfile.test.js && http-server ./test/manual -p 7878"
+    "test": "jest ./test/automated/*",
+    "test:manual": "gulp --gulpfile ./test/manual/gulpfile.test.js && http-server ./test/manual -p 7878"
   },
   "repository": {
     "type": "git",
@@ -45,6 +46,7 @@
     "gulp-cli": "^2.0.1",
     "gulp-concat": "^2.6.1",
     "gulp-replace": "^1.0.0",
+    "jest": "^24.1.0",
     "webpack": "^4.29.0",
     "webpack-cli": "^3.2.1"
   },
