@@ -269,7 +269,6 @@ _([from their website](https://en.gravatar.com/site/implement/images/))_
 
 `npm run test`
 
-*navigate to http://127.0.0.1:7878/ to manually test changes*
 
 # Coming Soon:
  - UMD standardization: no need to import a separate file in ES modules.
