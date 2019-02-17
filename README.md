@@ -1,4 +1,4 @@
-# smart-avatar <img align="left" height="100" src="https://raw.githubusercontent.com/jaredgorski/smart-avatar/master/.media/smartfox%40640.png">
+# smart-avatar  [![Build Status](https://travis-ci.com/jaredgorski/smart-avatar.svg?branch=master)](https://travis-ci.com/jaredgorski/smart-avatar) <img align="left" height="100" src="https://raw.githubusercontent.com/jaredgorski/smart-avatar/master/.media/smartfox%40640.png">
 Render avatars with dynamic, defined fallback
 
 ![](https://github.com/jaredgorski/smart-avatar/raw/master/.media/smart-avatar_demo.gif)
