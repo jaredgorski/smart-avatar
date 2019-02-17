@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - "8"
+cache:
+  directories:
+    - node_modules
+before_install:
+  - npm config set spin false
+install:
+  - npm i -g npm@^5.8
+  - npm ci
+script:
+  - npm run build
+  - npm run test
+branches:
+  only:
+    - master
+notifications:
+  email: false
