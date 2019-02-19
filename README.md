@@ -199,7 +199,7 @@ Even with no settings defined, a non-Image smart-avatar will _still_ have the fo
 </div>
 ```
 
-This means that, if you wish to customize the font of your initials avatar or change the layout styles for some reason, simply leaving all of the settings undefined will potentially get in the way of stylesheet customizations (unless you use `!important`, but that defies best-practices).
+This means that, if you wish to customize the font of your initials avatar or change the layout styles for some reason, simply leaving all of the settings undefined will still get in the way of stylesheet customizations for the properties defined inline above (unless you use `!important`, but that defies best-practices).
 
 This is where the `unstyled` flag comes in handy. If you want your smart-avatar asset to be completely raw and unstyled to make room for your stylesheets, you should pass `unstyled: true`. This will override any settings for that smart-avatar asset, always returning pure HTML. This means that images will render at their natural sizes, there will be no layout structure, and background colors, text colors, and font styles will all default to User-Agent unless styled otherwise. This makes smart-avatar a flexible solution for nearly any application.
 
@@ -212,7 +212,7 @@ Key | Definition | Default
 `size` | **Number or String** - Defines output element width in `px`. | `48`
 `textColor` | **String** - Font color of initials icon as Hex, RGB, or RGBA value. | `#FFFFFF`
 
-Since the `setDefaults` flag _only changes the default behavior_ of these settings, that means that defining these settings yourself will still override these defaults. For example, a smart-avatar asset with `setDefaults: true` and `size: 120` will render with a size of 120px, a background color of `#777`, and a font color of `FFF`.
+Since the `setDefaults` flag _only changes the default behavior_ of these settings, that means that defining these settings yourself will still override these defaults. For example, a smart-avatar asset with `setDefaults: true` and `size: 120` will render with a size of 120px, a background color of `#777`, and a font color of `#FFF`.
 
 _Note: `color` and `textColor` only matter in the case of a non-Gravatar icon or an initials avatar._
 
