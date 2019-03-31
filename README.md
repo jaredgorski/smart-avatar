@@ -30,7 +30,7 @@ Render avatars with dynamic, defined fallback
 
 A live demo is hosted at the following link. This demo allows for experimentation with all of the configuration settings smart-avatar provides. This demo may help you to determine whether this package is right for your needs. Demo will be updated with major changes to functionality.
 
-### Link: [demo-smartavatar.wedeploy.io](https://demo-smartavatar.wedeploy.io/)
+### [Link to live demo](https://smart-avatar-demo-bmrhtj906.now.sh/)
 
 ---
 
