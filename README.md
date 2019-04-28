@@ -1,5 +1,6 @@
-# smart-avatar  [![Build Status](https://travis-ci.com/jaredgorski/smart-avatar.svg?branch=master)](https://travis-ci.com/jaredgorski/smart-avatar) <img align="left" height="100" src="https://raw.githubusercontent.com/jaredgorski/smart-avatar/master/.media/smartfox%40640.png">
+# smart-avatar [![Build Status](https://travis-ci.com/jaredgorski/smart-avatar.svg?branch=master)](https://travis-ci.com/jaredgorski/smart-avatar) ![David](https://img.shields.io/david/peer/jaredgorski/smart-avatar.svg) ![npm bundle size](https://img.shields.io/bundlephobia/min/smart-avatar.svg)   <img align="left" height="100" src="https://raw.githubusercontent.com/jaredgorski/smart-avatar/master/.media/smartfox%40640.png">
 Render avatars with dynamic, defined fallback
+
 
 ![](https://github.com/jaredgorski/smart-avatar/raw/master/.media/smart-avatar_demo.gif)
 
@@ -39,8 +40,7 @@ A live demo is hosted at the following link. This demo allows for experimentatio
 ## Basic Example
 #### JS:
 ```javascript
-import smartAvatar from 'smart-avatar';
-
+import smartAvatar from 'smart-avatar'
 const targetElement = document.querySelector('.topbar-user');
 
 smartAvatar(targetElement, {
