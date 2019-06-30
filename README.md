@@ -180,6 +180,7 @@ Key | Definition | Default
 The "smart" resource is so-called because it provides an easy API for quality fallback in the worst-case scenario. If the given **gravatar** data doesn't return a valid image and the **src** path is broken, an asset with a given user's initials or a general, non-specific icon makes for a great avatar. If an icon is preferred, there are plenty of options to choose from, with more to come. See the list of available icons below.
 
 _Note: `color` and `textColor` only matter in the case of a non-Gravatar icon or an initials avatar._
+_Also note: in the future, the initials avatar will be made more available, rather than simply being a fallback option._
 
 ## "unstyled" Flag
 Even with no settings defined, a non-Image smart-avatar will _still_ have the following inline styles:
@@ -216,6 +217,18 @@ Since the `setDefaults` flag _only changes the default behavior_ of these settin
 
 _Note: `color` and `textColor` only matter in the case of a non-Gravatar icon or an initials avatar._
 
+## Disposal
+```javascript
+import smartAvatar from 'smart-avatar';
+
+const targetElement = document.querySelector(.topbar-user);
+
+// ... code ...
+
+smartAvatar(targetEl, 'dispose');
+```
+
+There may come a time where you want to dispose of all smart-avatar assets that are child-nodes of a given element. By passing a parent element alongside the string `dispose` in place of the configuration object, you can remove all smart-avatar nodes from the given parent element.
 
 # Available Icon Options
 
@@ -271,5 +284,4 @@ _([from their website](https://en.gravatar.com/site/implement/images/))_
 
 
 # Coming Soon:
- - UMD standardization: no need to import a separate file in ES modules.
  - General improvements: whatever I find necessary, and whatever you suggest! Make issues and send PRs please :smiley:
