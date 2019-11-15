@@ -1,5 +1,5 @@
-# smart-avatar [![Build Status](https://travis-ci.com/jaredgorski/smart-avatar.svg?branch=master)](https://travis-ci.com/jaredgorski/smart-avatar) ![David](https://img.shields.io/david/peer/jaredgorski/smart-avatar.svg) ![npm bundle size](https://img.shields.io/bundlephobia/min/smart-avatar.svg)   <img align="left" height="100" src="https://raw.githubusercontent.com/jaredgorski/smart-avatar/master/.media/smartfox%40640.png">
-Render avatars with dynamic, defined fallback
+I# smart-avatar [![Build Status](https://travis-ci.com/jaredgorski/smart-avatar.svg?branch=master)](https://travis-ci.com/jaredgorski/smart-avatar) ![David](https://img.shields.io/david/peer/jaredgorski/smart-avatar.svg) ![npm bundle size](https://img.shields.io/bundlephobia/min/smart-avatar.svg)   <img align="left" height="100" src="https://raw.githubusercontent.com/jaredgorski/smart-avatar/master/.media/smartfox%40640.png">
+Render avatars with dynamic, defined fallbackI
 
 
 ![](https://github.com/jaredgorski/smart-avatar/raw/master/.media/smart-avatar_demo.gif)
@@ -31,7 +31,8 @@ Render avatars with dynamic, defined fallback
 
 A live demo is hosted at the following link. This demo allows for experimentation with all of the configuration settings smart-avatar provides. This demo may help you to determine whether this package is right for your needs. Demo will be updated with major changes to functionality.
 
-### https://smart-avatar-demo.jaredgorski6.now.sh/
+### https://jaredgorski.com/work/smart-avatar/demo
+
 
 ---
 
