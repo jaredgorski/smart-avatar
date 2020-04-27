@@ -1,0 +1,73 @@
+/* normalize */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.testing-page {
+  box-sizing: border-box;
+  display: flex;
+  height: 100vh;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  padding: 24px;
+  width: 100vw;
+}
+
+.testing-page-left, .testing-page-right {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  height: calc(100vh - 48px);
+  justify-content: center;
+  width: calc(50vw - 48px);
+}
+
+.testing-page-title {
+  font-size: 65px;
+  margin-bottom: 5vh;
+  user-select: none;
+}
+
+.testing-page-title span {
+  color: #CCC;
+}
+
+.testing-page-input {
+  border: none;
+  font-family: courier;
+  font-size: 18px;
+  height: 60vh;
+  outline: none;
+  resize: none;
+  width: 35vw;
+}
+
+.testing-page-reset-container {
+  width: 35vw;
+}
+
+.testing-page-reset {
+  color: #CCC;
+  cursor: pointer;
+  font-size: 18px;
+  text-align: left;
+  transition: 0.3s;
+  user-select: none;
+}
+
+.testing-page-reset:hover {
+  color: #000;
+}
+
+.testing-page-targetEl {
+  max-height: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  user-select: none;
+}
+
+@media (max-height: 750px) {
+  .testing-page-input {
+    border: 1px dashed #DDD;
+  }
+}

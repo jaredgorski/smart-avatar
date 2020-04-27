@@ -1,0 +1,26 @@
+{
+  "name": "smart-avatar-demo-component",
+  "version": "0.0.0",
+  "description": "Demo for the smart-avatar component.",
+  "main": "dist/index.js",
+  "directories": {
+    "src": "./src"
+  },
+  "files": [
+    "dist/**",
+    "demo.css"
+  ],
+  "scripts": {
+    "build": "webpack"
+  },
+  "author": "Jared Gorski",
+  "license": "MIT",
+  "devDependencies": {
+    "react": "^16.10.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2"
+  }
+}
