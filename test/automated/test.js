@@ -1,4 +1,4 @@
-const smartAvatar = require('../../dist/smart-avatar.js');
+const smartAvatar = require('../../dist/index.js');
 
 // No arguments
 test('throws error if no args', () => {

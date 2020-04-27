@@ -147,8 +147,8 @@ function generateComplexImage(element, saData) {
       'px;width:' + saData.size +'px;' : '') + 
       'object-fit:cover;';
   }
-  
-  img.onerror = function() {
+
+    img.onerror = function() {
     handleErrFallback(element, img, a2);
 
     if (a2.type !== 'el') {
@@ -180,8 +180,8 @@ function generateComplexImage(element, saData) {
 
 function handleErrFallback(element, img, asset) {
   img.style.opacity = 0;
-  
-  if (asset.type === 'el') {
+
+    if (asset.type === 'el') {
     delete img.onerror;
     element.appendChild(asset.content);
     element.removeChild(img);
@@ -307,8 +307,8 @@ export default function smartAvatar(element, options) {
   }
 
   saData.gravatarUrl = saData.hash ? generateGravatarUrl(saData) : '';
-  
-  var asset = renderSA(element, saData);
+
+    var asset = renderSA(element, saData);
 
   element.appendChild(asset);
 }
@@ -331,8 +331,8 @@ function generateGravatarUrl(saData) {
 
 function md5cycle(x, k) {
   var a = x[0], b = x[1], c = x[2], d = x[3];
-  
-  a = ff(a, b, c, d, k[0], 7, -680876936);
+
+    a = ff(a, b, c, d, k[0], 7, -680876936);
   d = ff(d, a, b, c, k[1], 12, -389564586);
   c = ff(c, d, a, b, k[2], 17,  606105819);
   b = ff(b, c, d, a, k[3], 22, -1044525330);
@@ -348,8 +348,8 @@ function md5cycle(x, k) {
   d = ff(d, a, b, c, k[13], 12, -40341101);
   c = ff(c, d, a, b, k[14], 17, -1502002290);
   b = ff(b, c, d, a, k[15], 22,  1236535329);
-  
-  a = gg(a, b, c, d, k[1], 5, -165796510);
+
+    a = gg(a, b, c, d, k[1], 5, -165796510);
   d = gg(d, a, b, c, k[6], 9, -1069501632);
   c = gg(c, d, a, b, k[11], 14,  643717713);
   b = gg(b, c, d, a, k[0], 20, -373897302);
@@ -365,8 +365,8 @@ function md5cycle(x, k) {
   d = gg(d, a, b, c, k[2], 9, -51403784);
   c = gg(c, d, a, b, k[7], 14,  1735328473);
   b = gg(b, c, d, a, k[12], 20, -1926607734);
-  
-  a = hh(a, b, c, d, k[5], 4, -378558);
+
+    a = hh(a, b, c, d, k[5], 4, -378558);
   d = hh(d, a, b, c, k[8], 11, -2022574463);
   c = hh(c, d, a, b, k[11], 16,  1839030562);
   b = hh(b, c, d, a, k[14], 23, -35309556);
@@ -382,8 +382,8 @@ function md5cycle(x, k) {
   d = hh(d, a, b, c, k[12], 11, -421815835);
   c = hh(c, d, a, b, k[15], 16,  530742520);
   b = hh(b, c, d, a, k[2], 23, -995338651);
-  
-  a = ii(a, b, c, d, k[0], 6, -198630844);
+
+    a = ii(a, b, c, d, k[0], 6, -198630844);
   d = ii(d, a, b, c, k[7], 10,  1126891415);
   c = ii(c, d, a, b, k[14], 15, -1416354905);
   b = ii(b, c, d, a, k[5], 21, -57434055);
@@ -399,36 +399,36 @@ function md5cycle(x, k) {
   d = ii(d, a, b, c, k[11], 10, -1120210379);
   c = ii(c, d, a, b, k[2], 15,  718787259);
   b = ii(b, c, d, a, k[9], 21, -343485551);
-  
-  x[0] = add32(a, x[0]);
+
+    x[0] = add32(a, x[0]);
   x[1] = add32(b, x[1]);
   x[2] = add32(c, x[2]);
   x[3] = add32(d, x[3]);
-  
-}
-  
-function cmn(q, a, b, x, s, t) {
+
+  }
+
+  function cmn(q, a, b, x, s, t) {
   a = add32(add32(a, q), add32(x, t));
   return add32((a << s) | (a >>> (32 - s)), b);
 }
-  
-function ff(a, b, c, d, x, s, t) {
+
+  function ff(a, b, c, d, x, s, t) {
   return cmn((b & c) | ((~b) & d), a, b, x, s, t);
 }
-  
-function gg(a, b, c, d, x, s, t) {
+
+  function gg(a, b, c, d, x, s, t) {
   return cmn((b & d) | (c & (~d)), a, b, x, s, t);
 }
-  
-function hh(a, b, c, d, x, s, t) {
+
+  function hh(a, b, c, d, x, s, t) {
   return cmn(b ^ c ^ d, a, b, x, s, t);
 }
-  
-function ii(a, b, c, d, x, s, t) {
+
+  function ii(a, b, c, d, x, s, t) {
   return cmn(c ^ (b | (~d)), a, b, x, s, t);
 }
-  
-function md51(s) {
+
+  function md51(s) {
   var n = s.length,
   state = [1732584193, -271733879, -1732584194, 271733878], i;
   for (i=64; i<=s.length; i+=64) {
@@ -447,8 +447,8 @@ function md51(s) {
   md5cycle(state, tail);
   return state;
 }
-  
-function md5blk(s) {
+
+  function md5blk(s) {
   var md5blks = [], i;
   for (i=0; i<64; i+=4) {
     md5blks[i>>2] = s.charCodeAt(i)
@@ -458,33 +458,33 @@ function md5blk(s) {
   }
   return md5blks;
 }
-  
-var hex_chr = '0123456789abcdef'.split('');
-  
-function rhex(n) {
+
+  var hex_chr = '0123456789abcdef'.split('');
+
+  function rhex(n) {
   var s='', j=0;
   for(; j<4; j++)
     s += hex_chr[(n >> (j * 8 + 4)) & 0x0F]
     + hex_chr[(n >> (j * 8)) & 0x0F];
   return s;
 }
-  
-function hex(x) {
+
+  function hex(x) {
   for (var i=0; i<x.length; i++)
     x[i] = rhex(x[i]);
   return x.join('');
 }
-  
-function md5(s) {
+
+  function md5(s) {
   return hex(md51(s));
 }
-  
-function add32(a, b) {
+
+  function add32(a, b) {
   return (a + b) & 0xFFFFFFFF;
 }
 
 
-  
+
 function parseInitials(initialsStr) {
   var initials;
 

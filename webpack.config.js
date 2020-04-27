@@ -34,7 +34,7 @@ function generateConfig(options) {
 }
 
 config = generateConfig({
-  name: 'smart-avatar',
+  name: 'index',
   mode: 'production',
   outputPath: '/dist/',
   target: 'commonjs2',

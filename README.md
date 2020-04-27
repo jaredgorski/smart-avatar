@@ -31,7 +31,7 @@ Render avatars with dynamic, defined fallbackI
 
 A live demo is hosted at the following link. This demo allows for experimentation with all of the configuration settings smart-avatar provides. This demo may help you to determine whether this package is right for your needs. Demo will be updated with major changes to functionality.
 
-### https://jaredgorski.com/work/smart-avatar/demo
+### https://smart-avatar-demo.jaredgorski6.now.sh/
 
 
 ---
@@ -59,7 +59,7 @@ smartAvatar(targetElement, {
 #### ES Module:
 ```html
 <script type="module">
-  import smartAvatar from 'path-to-module/dist/smart-avatar.browser.js';
+  import smartAvatar from 'path-to-module/dist/index.browser.js';
  
   const targetElements = document.querySelectorAll('.avatar');
   
@@ -283,6 +283,3 @@ _([from their website](https://en.gravatar.com/site/implement/images/))_
 
 `npm run test`
 
-
-# Coming Soon:
- - General improvements: whatever I find necessary, and whatever you suggest! Make issues and send PRs please :smiley:
