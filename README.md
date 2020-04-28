@@ -1,4 +1,4 @@
-# smart-avatar [![Build Status](https://travis-ci.com/jaredgorski/smart-avatar.svg?branch=master)](https://travis-ci.com/jaredgorski/smart-avatar) ![David](https://img.shields.io/david/jaredgorski/smart-avatar) ![npm bundle size](https://img.shields.io/bundlephobia/min/smart-avatar.svg)   <img align="left" height="100" src="https://raw.githubusercontent.com/jaredgorski/smart-avatar/master/.media/smartfox%40640.png">
+# smart-avatar [![Build Status](https://travis-ci.com/jaredgorski/smart-avatar.svg?branch=master)](https://travis-ci.com/jaredgorski/smart-avatar) ![David](https://img.shields.io/david/jaredgorski/smart-avatar) ![npm bundle size](https://img.shields.io/bundlephobia/min/smart-avatar.svg)   <img align="left" height="100" src="https://raw.githubusercontent.com/jaredgorski/smart-avatar/master/.media/smartfox%40600.png">
 Render avatars with dynamic, defined fallbackI
 
 
@@ -112,7 +112,7 @@ smartAvatar(targetElement, {
   
   // initials settings
   "initials": "J",                                  // 1 or 2 letters
-  "color": "#777777",                               // color of background (affects both initials and built-in icon)
+  "color": "#AAAAAA",                               // color of background (affects both initials and built-in icon)
   "textColor": "#FFFFFF",                           // color of initials font
   
   // built-in icon
@@ -210,11 +210,11 @@ If you're looking for quick and dirty results, passing `setDefaults: true` in yo
 
 Key | Definition | Default
 --- | --- | ---
-`color` | **String** - Background color of smart icon as Hex, RGB, or RGBA value. | `#777777`
+`color` | **String** - Background color of smart icon as Hex, RGB, or RGBA value. | `#AAAAAA`
 `size` | **Number or String** - Defines output element width in `px`. | `48`
 `textColor` | **String** - Font color of initials icon as Hex, RGB, or RGBA value. | `#FFFFFF`
 
-Since the `setDefaults` flag _only changes the default behavior_ of these settings, that means that defining these settings yourself will still override these defaults. For example, a smart-avatar asset with `setDefaults: true` and `size: 120` will render with a size of 120px, a background color of `#777`, and a font color of `#FFF`.
+Since the `setDefaults` flag _only changes the default behavior_ of these settings, that means that defining these settings yourself will still override these defaults. For example, a smart-avatar asset with `setDefaults: true` and `size: 120` will render with a size of 120px, a background color of `#AAA`, and a font color of `#FFF`.
 
 _Note: `color` and `textColor` only matter in the case of a non-Gravatar icon or an initials avatar._
 
@@ -237,7 +237,7 @@ There may come a time where you want to dispose of all smart-avatar assets that 
 
 **smartfox** - the best default fox ever (uses `color` as background)
 <p align="left">
-  <img height="80" src="https://raw.githubusercontent.com/jaredgorski/smart-avatar/master/.media/smartfox%40640.png">
+  <img height="80" src="https://raw.githubusercontent.com/jaredgorski/smart-avatar/master/.media/smartfox%40600.png">
 </p>
 
 ## Gravatar-hosted Icons 

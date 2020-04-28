@@ -29,7 +29,7 @@
 }
 
 .testing-page-title span {
-  color: #CCC;
+  color: #777;
 }
 
 .testing-page-input {
@@ -47,7 +47,7 @@
 }
 
 .testing-page-reset {
-  color: #CCC;
+  color: #777;
   cursor: pointer;
   font-size: 18px;
   text-align: left;
