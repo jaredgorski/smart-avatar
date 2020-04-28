@@ -1,5 +1,5 @@
-# smart-avatar [![Build Status](https://travis-ci.com/jaredgorski/smart-avatar.svg?branch=master)](https://travis-ci.com/jaredgorski/smart-avatar) ![David](https://img.shields.io/david/jaredgorski/smart-avatar) ![npm bundle size](https://img.shields.io/bundlephobia/min/smart-avatar.svg)   <img align="left" height="100" src="https://raw.githubusercontent.com/jaredgorski/smart-avatar/master/.media/smartfox%40600.png">
-Render avatars with dynamic, defined fallbackI
+# smart-avatar [![Build Status](https://travis-ci.com/jaredgorski/smart-avatar.svg?branch=master)](https://travis-ci.com/jaredgorski/smart-avatar) ![David](https://img.shields.io/david/jaredgorski/smart-avatar) ![npm bundle size](https://img.shields.io/bundlephobia/min/smart-avatar.svg)
+Render avatars with dynamic, defined fallback
 
 
 ![](https://github.com/jaredgorski/smart-avatar/raw/master/.media/smart-avatar_demo.gif)
