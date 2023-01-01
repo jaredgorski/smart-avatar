@@ -17,8 +17,8 @@
   "license": "MIT",
   "devDependencies": {
     "react": "^16.10.2",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.9"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "peerDependencies": {
     "react": "^16.10.2"
